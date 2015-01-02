@@ -1,0 +1,30 @@
+{
+  "name": "slick/main",
+  "description": "Email plugin provides generalized functionality to compose and send both text and MIME-compliant multipart email messages.",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "type": "library",
+  "keywords": [
+    "mail", "e-mail", "MIME", "HTML e-mail message", "send e-mail"
+  ],
+  "authors": [
+    {
+      "name": "Filipe Silva",
+      "email": "silvam.filipe@gmail.com"
+    }
+  ],
+  "require": {
+    "slick/slick": "1.1.*@dev",
+    "zendframework/zend-mail": "~2.2",
+    "ircmaxell/random-lib": "*"
+  },
+  "require-dev": {
+    "codeception/codeception": "2.1.*@dev",
+    "guzzle/guzzle": "~3.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Slick\\Mail\\": "src"
+    }
+  }
+}
