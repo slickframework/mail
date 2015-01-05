@@ -50,6 +50,9 @@ Once you create a ``Message`` you can set the content and headers. In this case 
 will be processed using the Slick\Template Twig engine by using the ``Message::setTemplate()``
 and ``Message::setData()`` methods.
 
+> For a more complete help on the message object, as this is an extension to the
+> Zend\Mail library, you can jump to the [Zen/Mail manual][] page.
+
 If you need to send a multi-part e-mail with text and HTML, embedding  images in it,
 for example, you can do like this:
 
@@ -99,6 +102,10 @@ $transport = $factory->getTransport();
 $transport->send($message);
 
 ```
+
+> For a more complete help on the transport object and options, as this is an extension to the
+> Zend\Mail library, you can jump to the [Zen/Mail/transport manual][] page.
+
 **Contribute**
 
 -   Issue Tracker: <https://github.com/slickframework/mail/issues>
@@ -114,3 +121,5 @@ The project is licensed under the MIT License (MIT)
 
   [Twig]: http://twig.sensiolabs.org/
   [Zend\Mail]: http://framework.zend.com/manual/current/en/modules/zend.mail.introduction.html
+  [zend\Mail Manual]: http://framework.zend.com/manual/current/en/modules/zend.mail.message.html
+  [Zen/Mail/transport manual]: http://framework.zend.com/manual/current/en/modules/zend.mail.transport.html
