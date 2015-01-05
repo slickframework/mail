@@ -13,12 +13,13 @@
 namespace Mail;
 
 use Slick\Mail\Message;
-use Zend\Mail\Transport\Smtp;
-use Zend\Mime\Mime;
-use Zend\Mime\Part as MimePart;
 use Slick\Mail\TransportFactory;
 use Slick\Mail\Test\EmailTestCase;
-use Zend\Mime\Message as MimeMessage;
+use Slick\Mail\Mime\Part as MimePart;
+use Slick\Mail\Mime\Message as MimeMessage;
+
+use Zend\Mime\Mime;
+use Zend\Mail\Transport\Smtp;
 
 /**
  * Send email functional test

@@ -26,4 +26,8 @@ use Zend\Mail\Message as ZendMailMessage;
 class Message extends ZendMailMessage
 {
 
+    /**
+     * Loads template methods
+     */
+    use TemplateMethods;
 }

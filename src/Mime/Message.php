@@ -3,21 +3,21 @@
 /**
  * E-Mail MIME message
  *
- * @package   Slick\Mail
+ * @package   Slick\Mail\Mime
  * @author    Filipe Silva <silvam.filipe@gmail.com>
  * @copyright 2014 SlickFramework
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  * @since     Version 1.0.0
  */
 
-namespace Mime;
+namespace Slick\Mail\Mime;
 
 use Zend\Mime\Message as ZendMailMimeMessage;
 
 /**
  * E-Mail MIME message
  *
- * @package   Slick\Mail
+ * @package   Slick\Mail\Mime
  * @author    Filipe Silva <silvam.filipe@gmail.com>
  *
  * For a complete reference please check the Zend\Mail reference site
@@ -25,5 +25,4 @@ use Zend\Mime\Message as ZendMailMimeMessage;
  */
 class Message extends ZendMailMimeMessage
 {
-
 }
