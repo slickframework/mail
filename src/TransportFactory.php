@@ -69,11 +69,12 @@ class TransportFactory extends Base
     public function getTransport()
     {
         $alias = array_keys(static::$_alias);
+        $className = $this->class;
         if (in_array($this->class, $alias)) {
-            $this->class = static::$_alias[$this->class];
+            $className = static::$_alias[$this->class];
         }
 
-        $class = new ReflectionClass($this->class);
+        $class = new ReflectionClass($className);
         $interface = '\Zend\Mail\Transport\TransportInterface';
 
         if (!$class->implementsInterface($interface)) {
@@ -88,10 +89,10 @@ class TransportFactory extends Base
             $optionsClass = new ReflectionClass(
                 static::$_optionsClass[$this->class]
             );
-            $this->_options = $optionsClass->newInstanceArgs($this->_options);
+            $this->_options = $optionsClass->newInstanceArgs([$this->_options]);
         }
 
-        return $class->newInstanceArgs($this->_options);
+        return $class->newInstanceArgs([$this->_options]);
     }
 
 }

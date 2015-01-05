@@ -10,10 +10,10 @@
  * @since     Version 1.0.0
  */
 
-namespace Test;
+namespace Slick\Mail\Test;
 
 use Guzzle\Http\Client;
-use Codeception\TestCase;
+use Codeception\TestCase\Test;
 use Guzzle\Http\Exception\RequestException;
 
 /**
@@ -30,7 +30,7 @@ use Guzzle\Http\Exception\RequestException;
  * YPlease make sure that MailCatcher is installed and running.
  * @see http://mailcatcher.me/
  */
-class EmailTestCase extends TestCase
+class EmailTestCase extends Test
 {
 
     /**
@@ -41,7 +41,7 @@ class EmailTestCase extends TestCase
     /**
      * @var string
      */
-    protected $_serverAddress = 'http://127.0.0.1:1080';
+    protected $serverAddress = 'http://127.0.0.1:1080';
 
     /**
      * Open a network connection.
@@ -50,17 +50,38 @@ class EmailTestCase extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->_mailCatcher = new Client();
+        $this->_mailCatcher = new Client($this->serverAddress);
+        $this->checkMailCatcher();
+    }
+
+    /**
+     * Check if MailCatcher is installed and responding on server address provided
+     * Mark this test as skipped if it not correctly configured
+     */
+    public function checkMailCatcher()
+    {
         try {
             $this->cleanMessages();
         } catch (RequestException $exp) {
             $this->markTestSkipped(
                 'Cannot connect to the CatchMail server. Please check ' .
                 'your configuration or installation. Current configuration ' .
-                'is: '.$this->_serverAddress
+                'is: '.$this->serverAddress
             );
         }
+    }
 
+    /**
+     * Sets MailCatcher server address
+     *
+     * @param string $address
+     * @return self
+     */
+    public function setServerAddress($address)
+    {
+        $this->serverAddress = $address;
+        $this->_mailCatcher = new Client($address);
+        return $this;
     }
 
     // api calls
@@ -81,9 +102,8 @@ class EmailTestCase extends TestCase
     public function getLastMessage()
     {
         $messages = $this->getMessages();
-        if (empty($messages)) {
+        if (empty($messages))
             $this->fail("No messages received");
-        }
         // messages are in descending order
         return reset($messages);
     }
@@ -134,7 +154,7 @@ class EmailTestCase extends TestCase
      */
     public function assertEmailSubjectEquals($expected, $email, $description = '')
     {
-        $this->assertContains($expected, $email->subject, $description);
+        $this->assertEquals($expected, $email->subject, $description);
     }
 
     /**
