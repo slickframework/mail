@@ -24,7 +24,7 @@ final class Version
      * @var string Slick Mail version identification
      * @see \Slick\Mail\Version::compare()
      */
-    const VERSION = '1.0.0';
+    const VERSION = '1.1.0-dev';
 
     /**
      * @var string The latest stable version available
