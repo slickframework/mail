@@ -38,9 +38,9 @@ Create a message:
 use Slick\Mail\Message;
 
 $message = new Message();
-        $message->addFrom('some@from.address', 'Slick Mail')
-            ->addTo('you@example.com')
-            ->setSubject('Log message');
+$message->addFrom('some@from.address', 'Slick Mail')
+    ->addTo('you@example.com')
+    ->setSubject('Log message');
 
 $message->setTemplate('mail/template.twig')
     ->setData(['foo' => $foo, 'bar' => 'baz']);
@@ -50,10 +50,10 @@ Once you create a ``Message`` you can set the content and headers. In this case 
 will be processed using the Slick\Template Twig engine by using the ``Message::setTemplate()``
 and ``Message::setData()`` methods.
 
-> For a more complete help on the message object, as this is an extension to the
-> Zend\Mail library, you can jump to the [Zend/Mail manual][] page.
+> For a complete documentation on ``Message`` object, as this is an extension to the
+> Zend/Mail library, you can go to the [Zend/Mail manual][] website.
 
-If you need to send a multi-part e-mail with text and HTML, embedding  images in it,
+If you need to send a multi-part e-mail with text and HTML, embedding images in it,
 for example, you can do like this:
 
 ``` php
@@ -103,8 +103,10 @@ $transport->send($message);
 
 ```
 
-> For a more complete help on the transport object and options, as this is an extension to the
-> Zend\Mail library, you can jump to the [Zend/Mail/transport manual][] page.
+> For a complete documentation on the transport object and options, as this is an extension to the
+> Zend\Mail library, you can go to the [Zend/Mail/transport manual][] website.
+
+
 
 **Contribute**
 
