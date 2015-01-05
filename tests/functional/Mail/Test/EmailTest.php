@@ -41,7 +41,7 @@ class EmailTest extends EmailTestCase
         $this->tester->am('Developer');
         $this->tester->amGoingTo('create an e-mail test case with no MailCatcher daemon running');
         $this->tester->expectTo('receive a skipped test message.');
-        $this->setServerAddress('http://192.168.1.12:1088');
+        $this->setServerAddress('http://unknown.host:1088');
         try {
             $this->checkMailCatcher();
             $this->fail("This should raise an exception here.");
