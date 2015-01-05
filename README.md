@@ -64,7 +64,7 @@ $text->type = "text/plain";
 $text->setTemplate('mail/template.twig')
     ->setData(['foo' => $foo, 'bar' => 'baz']);
 
-$image = new MimePart(fopen('image.jph', 'r'));
+$image = new MimePart(fopen('image.jpg', 'r'));
 $image->type = "image/jpeg";
 $image->id = 'image';
 $image->encoding = Mime::ENCODING_BASE64;
@@ -80,6 +80,25 @@ $message->setBody($body);
 
 ```
 
+As you can see it very easy to compose an e-mail message. Now you need to send it!
+ Lets see:
+ 
+``` php
+use Slick\Mail\TransportFactory;
+
+$factory = new TransportFactory([
+    'class' => 'Smtp',
+    'options' => [
+        'name' => 'localhost.localdomain',
+        'host' => '127.0.0.1',
+        'port' => 25,
+    ]
+]);
+$transport = $factory->getTransport();
+
+$transport->send($message);
+
+```
 **Contribute**
 
 -   Issue Tracker: <https://github.com/slickframework/mail/issues>
