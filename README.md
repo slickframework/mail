@@ -11,7 +11,7 @@ library to create the content for the message or the mime parts.
 -   Easy mail transport creation (SMTP, SendMail)
 -   Uses [Twig][] for a robust template engine
 -   Multi-Part e-mail messages
--   Created on top of [Zend\Mail][] library
+-   Created on top of [Zend/Mail][] library
 
 
 **Installation**
@@ -51,7 +51,7 @@ will be processed using the Slick\Template Twig engine by using the ``Message::s
 and ``Message::setData()`` methods.
 
 > For a more complete help on the message object, as this is an extension to the
-> Zend\Mail library, you can jump to the [Zen/Mail manual][] page.
+> Zend\Mail library, you can jump to the [Zend/Mail manual][] page.
 
 If you need to send a multi-part e-mail with text and HTML, embedding  images in it,
 for example, you can do like this:
@@ -104,7 +104,7 @@ $transport->send($message);
 ```
 
 > For a more complete help on the transport object and options, as this is an extension to the
-> Zend\Mail library, you can jump to the [Zen/Mail/transport manual][] page.
+> Zend\Mail library, you can jump to the [Zend/Mail/transport manual][] page.
 
 **Contribute**
 
@@ -120,6 +120,6 @@ If you are having issues, please let us know.
 The project is licensed under the MIT License (MIT)
 
   [Twig]: http://twig.sensiolabs.org/
-  [Zend\Mail]: http://framework.zend.com/manual/current/en/modules/zend.mail.introduction.html
-  [zend\Mail Manual]: http://framework.zend.com/manual/current/en/modules/zend.mail.message.html
-  [Zen/Mail/transport manual]: http://framework.zend.com/manual/current/en/modules/zend.mail.transport.html
+  [Zend/Mail]: http://framework.zend.com/manual/current/en/modules/zend.mail.introduction.html
+  [zend/Mail Manual]: http://framework.zend.com/manual/current/en/modules/zend.mail.message.html
+  [Zend/Mail/transport manual]: http://framework.zend.com/manual/current/en/modules/zend.mail.transport.html
