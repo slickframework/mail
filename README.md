@@ -34,22 +34,51 @@ Then you need to run:
     
 Create a message:
 
-``` php    
-<?php
-    use Slick\Mail\Message;
-    
-    $message = new Message();
-            $message->addFrom('some@from.address', 'Slick Mail')
-                ->addTo('you@example.com')
-                ->setSubject('Log message');
-    
-    $message->setTemplate('mail/template.twig')
-        ->setData(['foo' => $foo, 'bar' => 'baz']);
+``` php
+use Slick\Mail\Message;
+
+$message = new Message();
+        $message->addFrom('some@from.address', 'Slick Mail')
+            ->addTo('you@example.com')
+            ->setSubject('Log message');
+
+$message->setTemplate('mail/template.twig')
+    ->setData(['foo' => $foo, 'bar' => 'baz']);
 ```        
             
 Once you create a ``Message`` you can set the content and headers. In this case the content
 will be processed using the Slick\Template Twig engine by using the ``Message::setTemplate()``
 and ``Message::setData()`` methods.
+
+If you need to send a multi-part e-mail with text and HTML, embedding  images in it,
+for example, you can do like this:
+
+``` php
+use Slick\Mail\Message;
+use Slick\Mail\Mime\Part as MimePart;
+use Slick\Mail\Mime\Message as MimeMessage;
+use Zend\Mime\Mime;
+
+$text = new MimePart();
+$text->type = "text/plain";
+$text->setTemplate('mail/template.twig')
+    ->setData(['foo' => $foo, 'bar' => 'baz']);
+
+$image = new MimePart(fopen('image.jph', 'r'));
+$image->type = "image/jpeg";
+$image->id = 'image';
+$image->encoding = Mime::ENCODING_BASE64;
+
+$html = new MimePart('<p>HTML e-mail message.</p><img src="cid:image"> ');
+$html->type = "text/html";
+
+$body = new MimeMessage();
+$body->setParts(array($text, $html, $image));
+
+$message = new Message();
+$message->setBody($body);
+
+```
 
 **Contribute**
 
