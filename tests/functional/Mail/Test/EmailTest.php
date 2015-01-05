@@ -69,7 +69,7 @@ class EmailTest extends EmailTestCase
             $this->getLastMessage();
             $this->fail("This should raise an exception here.");
         } catch (\Exception $e) {
-            $this->assertTrue($e instanceof \PHPUnit_Framework_TestFailure);
+            $this->assertTrue($e instanceof \PHPUnit_Framework_AssertionFailedError);
             $this->tester->comment('The test fails as expected.');
         }
     }
