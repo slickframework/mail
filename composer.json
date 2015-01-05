@@ -1,5 +1,5 @@
 {
-  "name": "slick/main",
+  "name": "slick/mail",
   "description": "Email plugin provides generalized functionality to compose and send both text and MIME-compliant multipart email messages.",
   "minimum-stability": "dev",
   "license": "MIT",
