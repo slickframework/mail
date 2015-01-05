@@ -21,7 +21,7 @@ To use E-Mail plugin in your project just add the following line to your project
 
     {
         "require": {
-            "slick/slick": "1.0.*@dev",
+            "slick/mail": "1.0.*@dev",
             ...
         }
     }
