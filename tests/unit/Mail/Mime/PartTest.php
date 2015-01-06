@@ -82,7 +82,7 @@ class PartTest extends Test
         $body = $part->getContent();
         $return = $part->processTemplate();
         $this->assertTrue($return instanceof Part);
-        $this->assertEquals($data['variable'], $body->getRawContent());
+        $this->assertEquals($data['variable'], $body);
 
         $this->tester->expectTo(
             'have a content raw as the result of the template processing.'

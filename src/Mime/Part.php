@@ -75,7 +75,7 @@ class Part extends ZendMailMimePart
         }
 
         if (is_null($this->content) && !is_null($this->template)) {
-            $this->content = $this->processTemplate();
+            $this->processTemplate();
         }
 
         return parent::getContent($EOL);
