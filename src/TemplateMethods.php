@@ -45,13 +45,6 @@ trait TemplateMethods
     public $data = [];
 
     /**
-     * Content of the message
-     *
-     * @var string|object
-     */
-    protected $body;
-
-    /**
      * Set template file
      *
      * @param string $template
