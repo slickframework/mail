@@ -1,2 +1,0 @@
-Starting MailCatcher
-~~> ERROR: Something's using port 1025. Are you already running MailCatcher?

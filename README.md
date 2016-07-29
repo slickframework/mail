@@ -1,10 +1,19 @@
-Slick E-Mail plugin
-===================
+# Slick Mail
+
+[![Latest Version](https://img.shields.io/github/release/slickframework/mail.svg?style=flat-square)](https://github.com/slickframework/mail/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Build Status](https://img.shields.io/travis/slickframework/mail/master.svg?style=flat-square)](https://travis-ci.org/slickframework/mail)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/slickframework/mail/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/slickframework/mail/code-structure?branch=master)
+[![Quality Score](https://img.shields.io/scrutinizer/g/slickframework/mail/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/slickframework/mail?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/slick/mail.svg?style=flat-square)](https://packagist.org/packages/slick/mail)
 
 Email plugin provides generalized functionality to compose and send both text and
 MIME-compliant multi-part email messages. It uses the Zen\Mail library to create
 and send the e-mail messages. It also adds the possibility to use the Slick\Template
 library to create the content for the message or the mime parts.
+
+This package is compliant with PSR-2 code standards and PSR-4 autoload standards.
+It also applies the semantic version 2.0.0 specification.
 
 **Features**
 
