@@ -5,4 +5,4 @@ default:
       contexts:
         - FeatureContext
       paths:
-- %paths.base%/features
+        - %paths.base%/features
