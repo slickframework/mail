@@ -1824,12 +1824,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "324d1c1fbdb61cec5420cb2779b50d46099dfdc0"
+                "reference": "8398292e9c5bacfe4f48208aabaa80b3e67a65a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/324d1c1fbdb61cec5420cb2779b50d46099dfdc0",
-                "reference": "324d1c1fbdb61cec5420cb2779b50d46099dfdc0",
+                "url": "https://api.github.com/repos/symfony/console/zipball/8398292e9c5bacfe4f48208aabaa80b3e67a65a9",
+                "reference": "8398292e9c5bacfe4f48208aabaa80b3e67a65a9",
                 "shasum": ""
             },
             "require": {
@@ -1878,7 +1878,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-29 09:54:38"
+            "time": "2016-07-30 07:26:43"
         },
         {
             "name": "symfony/dependency-injection",
@@ -1886,12 +1886,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "5bb4fe3106317fdaa67a54b56ef904a0c78ce351"
+                "reference": "d53a91bb53b8b70449e8c9ac3ad5f8db7e5ff02b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/5bb4fe3106317fdaa67a54b56ef904a0c78ce351",
-                "reference": "5bb4fe3106317fdaa67a54b56ef904a0c78ce351",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/d53a91bb53b8b70449e8c9ac3ad5f8db7e5ff02b",
+                "reference": "d53a91bb53b8b70449e8c9ac3ad5f8db7e5ff02b",
                 "shasum": ""
             },
             "require": {
@@ -1941,7 +1941,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-28 11:15:50"
+            "time": "2016-07-30 07:26:43"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2009,12 +2009,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "4dfc4630390f9a88625f5991a0fc83549767b59d"
+                "reference": "a803b0e3dedec72dcea22da6836f598dc9263194"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/4dfc4630390f9a88625f5991a0fc83549767b59d",
-                "reference": "4dfc4630390f9a88625f5991a0fc83549767b59d",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/a803b0e3dedec72dcea22da6836f598dc9263194",
+                "reference": "a803b0e3dedec72dcea22da6836f598dc9263194",
                 "shasum": ""
             },
             "require": {
@@ -2050,7 +2050,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-20 05:56:17"
+            "time": "2016-07-29 15:37:06"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2166,12 +2166,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "188ed7f4ff485ceaf6e5aeeeb539194395c4de96"
+                "reference": "b11cc1b91323f78f67e7f4d08bb639e3c24169e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/188ed7f4ff485ceaf6e5aeeeb539194395c4de96",
-                "reference": "188ed7f4ff485ceaf6e5aeeeb539194395c4de96",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/b11cc1b91323f78f67e7f4d08bb639e3c24169e0",
+                "reference": "b11cc1b91323f78f67e7f4d08bb639e3c24169e0",
                 "shasum": ""
             },
             "require": {
@@ -2222,7 +2222,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-07-26 08:08:27"
+            "time": "2016-07-30 07:26:43"
         },
         {
             "name": "symfony/yaml",
