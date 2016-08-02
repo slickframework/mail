@@ -39,6 +39,14 @@ VOLUME $COMPOSER_HOME/cache
 RUN apt-install git rsync zlib1g-dev && \
     docker-php-ext-install zip
 
+# Use SSMTP
+RUN apt-install ssmtp && \
+    groupadd -g 500 ssmtp && \
+    chown :ssmtp /usr/sbin/ssmtp && \
+    chmod g+s /usr/sbin/ssmtp && \
+    echo "sendmail_path = /usr/sbin/ssmtp -t" > /usr/local/etc/php/conf.d/sendmail.ini && \
+    mv /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf~
+
 WORKDIR /var/www/html
 
 # Add configs

@@ -16,7 +16,8 @@
     }
   ],
   "require": {
-
+    "slick/common": "^1.2",
+    "slick/template": "^1.2"
   },
   "require-dev": {
     "phpunit/phpunit": "^4",
