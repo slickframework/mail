@@ -100,22 +100,22 @@ interface MessageInterface
     /**
      * Add a "Cc" address
      *
-     * @param  string|array|\Traversable $emailOrList
-     * @param  string|null $name
+     * @param  string $email
+     * @param  null|string $name
      *
      * @return MessageInterface
      */
-    public function addCc($emailOrList, $name = null);
+    public function addCc($email, $name = null);
 
     /**
      * Add a "Bcc" address
      *
-     * @param  string|array|\Traversable $emailOrList
-     * @param  string|null $name
+     * @param  string $email
+     * @param  null|string $name
      *
      * @return MessageInterface
      */
-    public function addBcc($emailOrList, $name = null);
+    public function addBcc($email, $name = null);
 
     /**
      * Add one or more addresses to the Reply-To recipients

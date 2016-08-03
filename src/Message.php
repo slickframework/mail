@@ -29,11 +29,6 @@ class Message implements MessageInterface
     protected $headers;
 
     /**
-     * @var string
-     */
-    protected $encoding = 'ASCII';
-
-    /**
      * @var MessageBodyInterface
      */
     protected $body;
@@ -165,27 +160,33 @@ class Message implements MessageInterface
     /**
      * Add a "Cc" address
      *
-     * @param  string|array|\Traversable $emailOrList
-     * @param  string|null $name
+     * @param  string $email
+     * @param  null|string $name
      *
      * @return MessageInterface
      */
-    public function addCc($emailOrList, $name = null)
+    public function addCc($email, $name = null)
     {
-        // TODO: Implement addCc() method.
+        /** @var AddressList $header */
+        $header = $this->getHeader('Cc', new AddressList('Cc'));
+        $header->add(new AddressList\Address($email, $name));
+        return $this;
     }
 
     /**
      * Add a "Bcc" address
      *
-     * @param  string|array|\Traversable $emailOrList
-     * @param  string|null $name
+     * @param  string $email
+     * @param  null|string $name
      *
      * @return MessageInterface
      */
-    public function addBcc($emailOrList, $name = null)
+    public function addBcc($email, $name = null)
     {
-        // TODO: Implement addBcc() method.
+        /** @var AddressList $header */
+        $header = $this->getHeader('Bcc', new AddressList('Bcc'));
+        $header->add(new AddressList\Address($email, $name));
+        return $this;
     }
 
     /**
@@ -193,14 +194,17 @@ class Message implements MessageInterface
      *
      * Appends to the list.
      *
-     * @param  string|array|\Traversable $emailOrList
+     * @param  string $email
      * @param  null|string $name
      *
      * @return MessageInterface
      */
-    public function addReplyTo($emailOrList, $name = null)
+    public function addReplyTo($email, $name = null)
     {
-        // TODO: Implement addReplyTo() method.
+        /** @var AddressList $header */
+        $header = $this->getHeader('Reply-To', new AddressList('Reply-To'));
+        $header->add(new AddressList\Address($email, $name));
+        return $this;
     }
 
     /**

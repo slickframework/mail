@@ -32,6 +32,16 @@ class FeatureContext implements Context, SnippetAcceptingContext
     protected $toRecipient;
 
     /**
+     * @var string
+     */
+    protected $ccRecipient;
+
+    /**
+     * @var string
+     */
+    protected $bccRecipient;
+
+    /**
      * Initializes context.
      *
      * Every scenario gets its own context instance.
@@ -102,6 +112,66 @@ class FeatureContext implements Context, SnippetAcceptingContext
         $found = false;
         foreach ($this->mailCatcher->getAllMessages() as $message) {
             if (in_array("<{$this->toRecipient}>", $message->recipients)) {
+                $found = true;
+                break;
+            }
+        }
+        if (!$found) {
+            throw new RuntimeException(
+                "Receptor does not receive the e-mail message."
+            );
+        }
+    }
+
+    /**
+     * @param string $address
+     *
+     * @Given /^I set the message CC "([^"]*)"$/
+     */
+    public function iSetTheMessageCC($address)
+    {
+        $this->message->addCc($address);
+        $this->ccRecipient = $address;
+    }
+
+    /**
+     * @param string $address
+     *
+     * @Given /^I set the message BCC "([^"]*)"$/
+     */
+    public function iSetTheMessageBCC($address)
+    {
+        $this->message->addBcc($address);
+        $this->bccRecipient = $address;
+    }
+
+    /**
+     * @Given /^the CC receptor should receive the message$/
+     */
+    public function theCCReceptorShouldReceiveTheMessage()
+    {
+        $found = false;
+        foreach ($this->mailCatcher->getAllMessages() as $message) {
+            if (in_array("<{$this->ccRecipient}>", $message->recipients)) {
+                $found = true;
+                break;
+            }
+        }
+        if (!$found) {
+            throw new RuntimeException(
+                "Receptor does not receive the e-mail message."
+            );
+        }
+    }
+
+    /**
+     * @Given /^the BCC receptor should receive the message$/
+     */
+    public function theBCCReceptorShouldReceiveTheMessage()
+    {
+        $found = false;
+        foreach ($this->mailCatcher->getAllMessages() as $message) {
+            if (in_array("<{$this->bccRecipient}>", $message->recipients)) {
                 $found = true;
                 break;
             }

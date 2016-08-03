@@ -162,6 +162,8 @@ class MessageTest extends TestCase
      *
      * @test
      * @depends setSubjectHeader
+     *
+     * @return Message
      */
     public function setBody(Message $message)
     {
@@ -171,6 +173,7 @@ class MessageTest extends TestCase
             'This is a simple e-mail message.',
             $message->getBodyText()
         );
+        return $message;
     }
 
     /**
@@ -194,5 +197,56 @@ class MessageTest extends TestCase
             ->with($this->isInstanceOf(MessageInterface::class))
             ->willReturn($body);
         $message->setBody($body);
+    }
+
+    /**
+     * Should add an header for cc address list
+     *
+     * @param Message $message
+     * @test
+     * @depends setBody
+     */
+    public function addCcToMessage(Message $message)
+    {
+        $message->addCc('john.cc@example.com', 'John');
+        $header = $message->getHeaders()['Cc'];
+        $this->assertEquals(
+            'Cc: John <john.cc@example.com>',
+            (string) $header
+        );
+    }
+
+    /**
+     * Should add an header for bcc address list
+     *
+     * @param Message $message
+     * @test
+     * @depends setBody
+     */
+    public function addBccToMessage(Message $message)
+    {
+        $message->addBcc('john.cc@example.com', 'John');
+        $header = $message->getHeaders()['Bcc'];
+        $this->assertEquals(
+            'Bcc: John <john.cc@example.com>',
+            (string) $header
+        );
+    }
+
+    /**
+     * Should add an header for ReplyTo address list
+     *
+     * @param Message $message
+     * @test
+     * @depends setBody
+     */
+    public function addReplyToMessage(Message $message)
+    {
+        $message->addReplyTo('john.cc@example.com', 'John');
+        $header = $message->getHeaders()['Reply-To'];
+        $this->assertEquals(
+            'Reply-To: John <john.cc@example.com>',
+            (string) $header
+        );
     }
 }
