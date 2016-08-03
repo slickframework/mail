@@ -42,16 +42,6 @@ trait HeaderCommonMethods
     }
 
     /**
-     * @param $encoding
-     *
-     * @return HeaderInterface
-     */
-    public function setEncoding($encoding)
-    {
-        // TODO: Implement setEncoding() method.
-    }
-
-    /**
      * Gets header value
      *
      * @return string

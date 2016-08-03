@@ -42,13 +42,6 @@ interface HeaderInterface
     public function toString();
 
     /**
-     * @param $encoding
-     *
-     * @return HeaderInterface
-     */
-    public function setEncoding($encoding);
-
-    /**
      * An automated version of toString() method
      *
      * @return string

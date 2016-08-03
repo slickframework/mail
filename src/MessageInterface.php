@@ -31,15 +31,6 @@ interface MessageInterface
     public function isValid();
 
     /**
-     * Set the message encoding
-     *
-     * @param  string $encoding
-     *
-     * @return MessageInterface
-     */
-    public function setEncoding($encoding);
-
-    /**
      * Access headers collection
      *
      * Lazy-loads if not already attached.

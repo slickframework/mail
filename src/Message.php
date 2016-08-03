@@ -54,22 +54,6 @@ class Message implements MessageInterface
     }
 
     /**
-     * Set the message encoding
-     *
-     * @param  string $encoding
-     *
-     * @return MessageInterface
-     */
-    public function setEncoding($encoding)
-    {
-        $this->encoding = $encoding;
-        foreach ($this->getHeaders() as $header) {
-            $header->setEncoding($encoding);
-        }
-        return $this;
-    }
-
-    /**
      * Access headers collection
      *
      * Lazy-loads if not already attached.
