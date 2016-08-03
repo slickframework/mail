@@ -85,6 +85,8 @@ class AddressList extends AbstractCollection implements AddressListInterface
      *
      * @param mixed $offset The offset to assign the value to.
      * @param mixed $value  The value to set.
+     *
+     * @codeCoverageIgnore
      */
     public function offsetSet($offset, $value)
     {

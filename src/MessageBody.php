@@ -9,7 +9,6 @@
 
 namespace Slick\Mail;
 
-use Slick\Template\Template;
 use Slick\Template\TemplateEngineInterface;
 
 /**
@@ -34,6 +33,11 @@ class MessageBody implements MessageBodyInterface
      * @var array
      */
     protected $data;
+
+    /**
+     * To load content from twig templates
+     */
+    use ContentFromTemplateMethods;
 
     /**
      * @var string
@@ -112,32 +116,5 @@ class MessageBody implements MessageBodyInterface
             $this->length = strlen($this);
         }
         return $this->length;
-    }
-
-    /**
-     * Gets the Template Engine
-     *
-     * @return TemplateEngineInterface
-     */
-    public function getTemplateEngine()
-    {
-        if (null == $this->templateEngine) {
-            $engine = (new Template())->initialize();
-            $this->setTemplateEngine($engine);
-        }
-        return $this->templateEngine;
-    }
-
-    /**
-     * Sets the Template Engine
-     *
-     * @param TemplateEngineInterface $templateEngine
-     *
-     * @return MessageBody|$this|self
-     */
-    public function setTemplateEngine(TemplateEngineInterface $templateEngine)
-    {
-        $this->templateEngine = $templateEngine;
-        return $this;
     }
 }
