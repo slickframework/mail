@@ -87,9 +87,14 @@ class PhpMailTransport implements MailTransportInterface
     {
         $eol = HeaderInterface::EOL;
         $headers = '';
+        $skipHeaders = ['To', 'Subject'];
         foreach ($this->message->getHeaders() as $header) {
+            if (in_array($header->getName(), $skipHeaders)) {
+                continue;
+            }
             $headers .= "{$header}{$eol}";
         }
-        return $headers.$eol.'X-Mailer: PHP/' . phpversion().$eol;
+        $headers = trim($headers).$eol.'X-Mailer: PHP/' . phpversion();
+        return $headers;
     }
 }

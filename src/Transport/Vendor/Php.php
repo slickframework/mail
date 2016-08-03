@@ -34,6 +34,6 @@ class Php
      */
     public function mail($to, $subject, $message, $additionalHeaders = null)
     {
-        return mail($to, $subject, $message);
+        return mail($to, $subject, $message, $additionalHeaders);
     }
 }

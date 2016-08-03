@@ -26,7 +26,7 @@ class Message implements MessageInterface
     /**
      * @var HeaderInterface[]
      */
-    protected $headers = [];
+    protected $headers;
 
     /**
      * @var string
@@ -78,7 +78,7 @@ class Message implements MessageInterface
      */
     public function getHeaders()
     {
-        if (empty($this->headers)) {
+        if (null == $this->headers) {
             $this->headers['Date'] = New GenericHeader('Date', date('r'));
         }
         return $this->headers;
@@ -96,7 +96,9 @@ class Message implements MessageInterface
      */
     public function addHeader($name, HeaderInterface $header)
     {
-        $this->headers[$name] = $header;
+        $headers = $this->getHeaders();
+        $headers[$name] = $header;
+        $this->headers = $headers;
         return $this;
     }
 
@@ -125,7 +127,7 @@ class Message implements MessageInterface
     {
         /** @var AddressList $from */
         $from = $this->getHeader('From', new AddressList('From'));
-        return $from->toString();
+        return trim(str_replace('From:', '', $from->toString()));
     }
 
     /**
@@ -153,7 +155,7 @@ class Message implements MessageInterface
     {
         /** @var AddressList $from */
         $from = $this->getHeader('To', new AddressList('To'));
-        return $from->toString();
+        return trim(str_replace('To:', '', $from->toString()));
     }
 
     /**

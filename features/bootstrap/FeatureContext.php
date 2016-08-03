@@ -22,9 +22,14 @@ class FeatureContext implements Context, SnippetAcceptingContext
     protected $transportAgent;
 
     /**
-     * @var bool
+     * @var MailCatcherClient
      */
-    protected $sendResult = false;
+    protected $mailCatcher;
+
+    /**
+     * @var string
+     */
+    protected $toRecipient;
 
     /**
      * Initializes context.
@@ -42,6 +47,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
             \Slick\Template\Template::addPath($path);
         }
         $this->transportAgent = new \Slick\Mail\Transport\PhpMailTransport();
+        $this->mailCatcher = new MailCatcherClient();
     }
 
     /**
@@ -55,6 +61,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
     {
         $this->message->setFrom($from)
             ->addTo($to);
+        $this->toRecipient = $to;
     }
 
     /**
@@ -92,6 +99,18 @@ class FeatureContext implements Context, SnippetAcceptingContext
      */
     public function theReceptorShouldReceiveTheMessage()
     {
-        throw new \Behat\Behat\Tester\Exception\PendingException();
+        $found = false;
+        foreach ($this->mailCatcher->getAllMessages() as $message) {
+            if (in_array("<{$this->toRecipient}>", $message->recipients)) {
+                $found = true;
+                break;
+            }
+        }
+        if (!$found) {
+            throw new RuntimeException(
+                "Receptor does not receive the e-mail message."
+            );
+        }
     }
+
 }

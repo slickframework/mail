@@ -74,7 +74,8 @@ class AddressList extends AbstractCollection implements AddressListInterface
         foreach ($this as $address) {
             $parts[] = (String) $address;
         }
-        return implode(',', $parts);
+        $addresses = implode(',', $parts);
+        return "{$this->getName()}: {$addresses}";
     }
 
     /**

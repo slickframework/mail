@@ -23,7 +23,8 @@
     "phpunit/phpunit": "^4",
     "phpunit/php-code-coverage": "^2",
     "scrutinizer/ocular": "~1.1",
-    "behat/behat": "^3.0.4"
+    "behat/behat": "^3.0.4",
+    "guzzlehttp/guzzle": "^6.2"
   },
   "autoload": {
     "psr-4": {
