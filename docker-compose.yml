@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  php:
+    build: docker/php
+    volumes:
+      - ./:/var/www/html
+    external_links:
+      - mail_mail_1:mail
+
+  mail:
+    image: helder/mailcatcher
+    ports:
+      - 80
