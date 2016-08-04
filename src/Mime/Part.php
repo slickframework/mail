@@ -11,6 +11,7 @@ namespace Slick\Mail\Mime;
 
 use Slick\Mail\ContentFromTemplateMethods;
 use Slick\Mail\Mime;
+use Slick\Template\TemplateEngineInterface;
 
 /**
  * Part
@@ -27,6 +28,7 @@ use Slick\Mail\Mime;
  * @method string getBoundary()
  * @method string getLocation()
  * @method string getLanguage()
+ * @method string getHeadersArray($EOL = Mime::LINEEND)
  */
 class Part implements MimePartInterface
 {
@@ -45,6 +47,11 @@ class Part implements MimePartInterface
      * @var array
      */
     protected $data;
+
+    /**
+     * @var TemplateEngineInterface
+     */
+    protected $templateEngine;
 
     /**
      * To load content from twig templates

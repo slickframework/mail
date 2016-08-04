@@ -12,7 +12,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
 {
 
     /**
-     * @var \Slick\Mail\Message
+     * @var \Slick\Mail\Message|\Slick\Mail\Mime\MimeMessage
      */
     protected $message;
 
@@ -181,6 +181,35 @@ class FeatureContext implements Context, SnippetAcceptingContext
                 "Receptor does not receive the e-mail message."
             );
         }
+    }
+
+    /**
+     * @param string $from
+     * @param string $to
+     *
+     * @Given /^I set message from "([^"]*)" to "([^"]*)"$/
+     */
+    public function setMessageFromTo($from, $to)
+    {
+        $this->iCreateAMessageFromTo($from, $to);
+    }
+
+    /**
+     * @Given /^I add a mime part with type "([^"]*)":$/
+     */
+    public function iAddAMimePartWithType($type, PyStringNode $string)
+    {
+        $part = new \Slick\Mail\Mime\Part('greetings.twig', ['message' => $string->getRaw()]);
+        $part->setType($type);
+        $this->message->parts()->add($part);
+    }
+
+    /**
+     * @Given /^I create a MIME message$/
+     */
+    public function iCreateAMIMEMessage()
+    {
+        $this->message = new \Slick\Mail\Mime\MimeMessage();
     }
 
 }
