@@ -4,33 +4,47 @@
   "minimum-stability": "dev",
   "license": "MIT",
   "type": "library",
+  "version": "v1.1.0",
   "keywords": [
     "mail", "e-mail", "MIME", "HTML e-mail message", "send e-mail"
   ],
   "authors": [
     {
       "name": "Filipe Silva",
-      "email": "silvam.filipe@gmail.com"
+      "email": "silvam.filipe@gmail.com",
+      "role": "Developer"
     }
   ],
   "require": {
-    "slick/slick": "1.1.*@dev",
-    "zendframework/zend-mail": "~2.2",
-    "ircmaxell/random-lib": "*"
+    "php" : ">=5.5",
+    "ext-mcrypt": "*",
+    "slick/common": "^1.2",
+    "slick/template": "^1.2",
+    "zendframework/zend-mime": "^2.6",
+    "zendframework/zend-mail": "^2.7",
+    "zendframework/zend-crypt": "^2.6"
   },
   "require-dev": {
-    "codeception/codeception": "2.1.*@dev",
-    "guzzle/guzzle": "~3.7"
+    "phpunit/phpunit": "^4",
+    "phpunit/php-code-coverage": "^2",
+    "scrutinizer/ocular": "~1.1",
+    "behat/behat": "^3.0.4",
+    "guzzlehttp/guzzle": "^6.2"
   },
   "autoload": {
     "psr-4": {
       "Slick\\Mail\\": "src"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Slick\\Mail\\Tests\\": "tests"
+    }
+  },
   "extra": {
     "branch-alias": {
-      "dev-master": "1.0-dev",
-      "dev-develop": "1.1-dev"
+      "dev-master": "1.1-dev",
+      "dev-develop": "1.2-dev"
     }
   }
 }
