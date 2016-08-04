@@ -2,6 +2,11 @@
 
 All Notable changes to `Slick/Mail` will be documented in this file.
 
+## v1.1.1 - 2016-08-04
+
+### Fixed
+- Scrutinizer configuration
+
 ## v1.1.0 - 2016-08-04
 
 ### Added
