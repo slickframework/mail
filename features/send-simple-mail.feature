@@ -15,3 +15,15 @@
     """
     When I send the message
     Then the receptor should receive the message
+
+    Scenario: Send greetings message using SMTP transport
+      Given I create a message from "me@example.com" to "john.doe@example.com"
+      And I set the message subject "Greetings (SMTP)"
+      And I set the message body:
+      """
+      Hello John, nice to have you around!
+
+      Regards,
+      """
+      When I send the message with SMPT
+      Then the receptor should receive the message

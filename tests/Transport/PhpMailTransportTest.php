@@ -89,6 +89,7 @@ class PhpMailTransportTest extends TestCase
         $result = (string) $headers['Date'].HeaderInterface::EOL;
         $from = $message->getFromAddressList();
         $result .= "From: {$from}".HeaderInterface::EOL;
+        $result .= "Sender: {$from}".HeaderInterface::EOL;
         $result .= 'X-Mailer: PHP/' . phpversion();
         return $result;
     }

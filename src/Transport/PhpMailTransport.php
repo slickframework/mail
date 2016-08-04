@@ -9,6 +9,7 @@
 
 namespace Slick\Mail\Transport;
 
+use Slick\Common\Base;
 use Slick\Mail\Header\HeaderInterface;
 use Slick\Mail\MessageInterface;
 use Slick\Mail\Transport\Vendor\Php;
@@ -19,7 +20,7 @@ use Slick\Mail\Transport\Vendor\Php;
  * @package Slick\Mail\Transport
  * @author  Filipe Silva <silvam.filipe@gmail.com>
  */
-class PhpMailTransport implements MailTransportInterface
+class PhpMailTransport extends Base implements MailTransportInterface
 {
 
     /**

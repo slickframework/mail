@@ -47,6 +47,9 @@ RUN apt-install ssmtp && \
     echo "sendmail_path = /usr/sbin/ssmtp -t" > /usr/local/etc/php/conf.d/sendmail.ini && \
     mv /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf~
 
+RUN apt-install libmcrypt-dev && \
+    docker-php-ext-install mcrypt
+
 WORKDIR /var/www/html
 
 # Add configs

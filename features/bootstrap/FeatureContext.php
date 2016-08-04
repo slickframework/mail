@@ -42,6 +42,11 @@ class FeatureContext implements Context, SnippetAcceptingContext
     protected $bccRecipient;
 
     /**
+     * @var \Slick\Mail\Transport\SmtpTransport
+     */
+    protected $smtpTransport;
+
+    /**
      * Initializes context.
      *
      * Every scenario gets its own context instance.
@@ -58,6 +63,14 @@ class FeatureContext implements Context, SnippetAcceptingContext
         }
         $this->transportAgent = new \Slick\Mail\Transport\PhpMailTransport();
         $this->mailCatcher = new MailCatcherClient();
+        $this->smtpTransport = new \Slick\Mail\Transport\SmtpTransport(
+            [
+                'options' => [
+                    'name'              => 'mail',
+                    'host'              => 'mail'
+                ]
+            ]
+        );
     }
 
     /**
@@ -226,4 +239,11 @@ class FeatureContext implements Context, SnippetAcceptingContext
         $this->message->parts()->add($part);
     }
 
+    /**
+     * @When /^I send the message with SMPT$/
+     */
+    public function iSendTheMessageWithSMPT()
+    {
+        $this->smtpTransport->send($this->message);
+    }
 }

@@ -91,9 +91,11 @@ class Message implements MessageInterface
      */
     public function setFrom($emailAddress, $name = null)
     {
-        $from = (new AddressList('From'))
-            ->add(new AddressList\Address($emailAddress, $name));
+        $address = new AddressList\Address($emailAddress, $name);
+        $from = (new AddressList('From'))->add($address);
         $this->addHeader('From', $from);
+        $sender = new GenericHeader('Sender', (string) $address);
+        $this->addHeader('Sender', $sender);
         return $this;
     }
 

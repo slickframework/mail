@@ -31,3 +31,17 @@
     When I send the message
     Then the receptor should receive the message
     And the BCC receptor should receive the message
+
+  Scenario: Send e-mail with CC to other recipient
+    Given I create a message from "me@example.com" to "john.doe@example.com"
+    And I set the message subject "Greetings"
+    And I set the message CC "jane.doe@example.com"
+    And I set the message body:
+    """
+    Hello John, nice to have you around!
+
+    Regards,
+    """
+    When I send the message with SMPT
+    Then the receptor should receive the message
+    And the CC receptor should receive the message
