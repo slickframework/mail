@@ -2,7 +2,7 @@
 
 All Notable changes to `Slick/Mail` will be documented in this file.
 
-## v1.1.x - 2016-??-??
+## v1.1.0 - 2016-08-04
 
 ### Added
 - Complete implementation on e-mail Message
