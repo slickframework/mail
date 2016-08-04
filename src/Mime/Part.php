@@ -29,6 +29,8 @@ use Slick\Template\TemplateEngineInterface;
  * @method string getLocation()
  * @method string getLanguage()
  * @method string getHeadersArray($EOL = Mime::LINEEND)
+ * @method Part   setEncoding(string $encoding)
+ * @method string getEncoding()
  */
 class Part implements MimePartInterface
 {
@@ -71,8 +73,8 @@ class Part implements MimePartInterface
     {
         $this->data = $data;
         $this->template = $template;
-        $content = (is_file($template))
-            ? fopen($template, 'r')
+        $content = (file_exists($template))
+            ? fopen("file://$template", 'r', true)
             : $this->processTemplate();
         $this->mimePart = new \Zend\Mime\Part($content);
     }

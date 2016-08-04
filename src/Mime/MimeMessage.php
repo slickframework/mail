@@ -11,6 +11,7 @@ namespace Slick\Mail\Mime;
 
 use Slick\Mail\Header\GenericHeader;
 use Slick\Mail\Header\HeaderInterface;
+use Slick\Mail\Message;
 use Zend\Mime\Mime;
 
 /**
@@ -19,8 +20,11 @@ use Zend\Mime\Mime;
  * @package Slick\Mail\Mime
  * @author  Filipe Silva <silvam.filipe@gmail.com>
  */
-class MimeMessage extends \Slick\Mail\Message
+class MimeMessage extends Message
 {
+
+    /** MIME version */
+    const VERSION = '1.0';
 
     /**
      * @var Mime
@@ -106,7 +110,7 @@ class MimeMessage extends \Slick\Mail\Message
      */
     protected function generateHeaders()
     {
-        $this->headers['Mime-Version'] = New GenericHeader('MIME-Version', Mime::VERSION);
+        $this->headers['MIME-Version'] = New GenericHeader('MIME-Version', self::VERSION);
         $this->headers['Date'] = New GenericHeader('Date', date('r'));
 
         if ($this->isMultiPart()) {
@@ -185,7 +189,7 @@ class MimeMessage extends \Slick\Mail\Message
         $eol = Mime::LINEEND;
         $boundaryLine = $this->getMime()->boundaryLine($eol);
         $body = 'This is a message in Mime Format.  If you see this, '
-            . "your mail reader does not support this format." . $eol;
+            . "your mail reader does{$eol}not support this format." . $eol;
 
         foreach ($this->parts as $part) {
             $body .= $boundaryLine
@@ -194,7 +198,7 @@ class MimeMessage extends \Slick\Mail\Message
                    . $part->getContent($eol);
         }
 
-        $body = $this->getMime()->mimeEnd($eol);
+        $body .= $this->getMime()->mimeEnd($eol);
         return trim($body);
     }
 

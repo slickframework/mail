@@ -212,4 +212,18 @@ class FeatureContext implements Context, SnippetAcceptingContext
         $this->message = new \Slick\Mail\Mime\MimeMessage();
     }
 
+    /**
+     * @param string $fileName
+     * @Given /^I set file "([^"]*)" to be attached$/
+     */
+    public function iSetFileToBeAttached($fileName)
+    {
+        $path = dirname(__DIR__);
+        $part = new \Slick\Mail\Mime\Part("{$path}/{$fileName}");
+        $part->setEncoding(\Slick\Mail\Mime::ENCODING_BASE64);
+        $part->setType('application/pdf');
+        $part->setDisposition('attachment; filename=example.pdf');
+        $this->message->parts()->add($part);
+    }
+
 }
