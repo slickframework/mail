@@ -4,6 +4,7 @@
   "minimum-stability": "dev",
   "license": "MIT",
   "type": "library",
+  "version": "v1.0.3",
   "keywords": [
     "mail", "e-mail", "MIME", "HTML e-mail message", "send e-mail"
   ],
@@ -14,8 +15,8 @@
     }
   ],
   "require": {
-    "slick/slick": "1.1.*@dev",
-    "zendframework/zend-mail": "~2.2",
+    "slick/slick": "^1.1",
+    "zendframework/zend-mail": "^2.5",
     "ircmaxell/random-lib": "*"
   },
   "require-dev": {
